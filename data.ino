@@ -5,14 +5,14 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-LiquidCrystal_I2C lcd(0x27, 20, 4);
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-const char *ssid = "Zeno_Modiff"; 
-const char *password = "UFMTRBRR"; 
-const String ducoUser = "Sreeramzeno";
+const char *ssid = "Code47"; 
+const char *password = "Code47@123"; 
+const String ducoUser = "iro_d";
 
 const String ducoReportJsonUrl = "https://server.duinocoin.com/v2/users/" + ducoUser + "?limit=1";
-const int run_in_ms = 15000;
+const int run_in_ms = 3000;
 float lastAverageHash = 0.0;
 float lastTotalHash = 0.0;
 
@@ -83,13 +83,15 @@ void loop() {
   lcd.print("Stake   :"); 
   lcd.setCursor(10,1);
   lcd.print(result_balance_stake); 
-  lcd.setCursor(0,2);
+  delay(3000);
+  lcd.clear();
+  lcd.setCursor(0,0);
   lcd.print("Workers :"); 
-  lcd.setCursor(10,2);
+  lcd.setCursor(10,0);
   lcd.print(total_miner); 
-  lcd.setCursor(0,3);
+  lcd.setCursor(0,1);
   lcd.print("Hash    :"); 
-  lcd.setCursor(10,3);
+  lcd.setCursor(10,1);
   lcd.print(totalHashrate);
 
     Serial.println("Username : " + String(result_balance_username));
